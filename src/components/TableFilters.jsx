@@ -59,7 +59,7 @@ function TableFilters() {
   };
 
   return (
-    <Box>
+    <Box sx={{ mb: 3 }}>
       <Typography variant="h5" sx={{ fontSize: "0.875rem" }}>
         Filters
       </Typography>
@@ -70,6 +70,7 @@ function TableFilters() {
             fullWidth
             label="By Name"
             size="small"
+            name="searchText"
             value={searchText}
             onChange={handleSearchChange}
           />
@@ -110,6 +111,8 @@ function TableFilters() {
               multiple
               value={selectedPaymentModes}
               onChange={handleMultiSelectChange}
+              placeholder="By Payment Mode"
+              name="paymentModes"
             >
               {paymentModes.map((item) => (
                 <MenuItem
@@ -132,6 +135,7 @@ function TableFilters() {
             sx={{ textTransform: "capitalize" }}
             disabled={!isFiltering}
             onClick={clearFilters}
+            data-testid="filterBtn"
           >
             Clear Filters
           </Button>

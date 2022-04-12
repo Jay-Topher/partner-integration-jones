@@ -17,7 +17,7 @@ function App() {
   const isFiltering =
     selectedPaymentModes.length > 0 || Boolean(status) || Boolean(searchText);
   useEffect(() => {
-    fetchData(setPartnerCompanies);
+    fetchData().then((data) => setPartnerCompanies(data));
   }, []);
   useEffect(() => {
     const filtered = filterFunction(partnerCompanies, {
